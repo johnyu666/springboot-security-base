@@ -1,6 +1,6 @@
 package cn.johnyu.service;
 
-import cn.johnyu.dao.UserDao;
+import cn.johnyu.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CustomUserDetailService implements UserDetailsService {
-    @Autowired private UserDao userDao;
+    @Autowired private UserMapper userMapper;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        return userDao.findUserByUsername(username);
+        return userMapper.findUserByUsername(username);
     }
 }

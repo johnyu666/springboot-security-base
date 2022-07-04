@@ -14,3 +14,6 @@ spring:
         - classpath:data/data.sql
       schema-locations: #替换原有的datasource.daga
         - classpath:data/schema.sql
+mybatis:
+  mapper-locations:
+    - classpath:mapping/UserMapper.xml
