@@ -13,13 +13,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
+                .defaultSuccessUrl("/welcome.html")
                 .and()//以上部分：是认证规则，以下部分是授权规则
                 .authorizeRequests()
-                .antMatchers("/books").hasAnyAuthority("teacher","student");
-//                .anyRequest().authenticated();
-//                .and()
-//                .logout().permitAll()
-//                .logoutSuccessUrl("/login");
+                .antMatchers("/books").hasAnyAuthority("teacher","student")
+                .anyRequest().authenticated();
     }
     @Bean
     public PasswordEncoder passwordEncoder(){

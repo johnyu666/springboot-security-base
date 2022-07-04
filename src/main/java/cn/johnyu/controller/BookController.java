@@ -11,6 +11,11 @@ public class BookController {
         return "查询所有的图书";
     }
 
+    @RequestMapping("/add")
+    public String addBook(){
+        return "添加！";
+    }
+
 //    @RequestMapping("/error")
 //    public String error(){
 //        return "没有登录或权限不足";
